@@ -1,0 +1,153 @@
+body{
+    font-family: 'Cairo', sans-serif;
+    font-family: "Inter", sans-serif;
+    width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 10px;
+}
+.control-button {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 140, 255, 0.856);
+    z-index: 3;
+}
+.control-button span{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(255, 225, 0);
+    color: rgb(62, 62, 62);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+body .div1{
+    display: flex;
+    justify-content: space-between;
+    align-items: enter;
+    border:2px solid rgb(0, 157, 255);
+    padding: 10px;
+}
+body .div1 p{
+    margin: 0;
+}
+body .div3{
+    background-color: rgb(169, 169, 169);
+    height: 7px;
+    border-radius: 4px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+body .div3::after{
+    transition: left .3s ;
+    content: '';
+    border-radius: 4px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: var(--line-left , -100%);
+    top: 0;
+    background-color: rgb(0, 89, 255);
+}
+
+body .div2 {
+    display: grid;
+    grid-template-columns: repeat(5 , auto);
+    gap: 20px;
+}
+body .div2 div .front{
+    z-index: 2;
+}
+body .div2 div .back{
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+body .div2 div{
+    height: 80px;
+    width: 80px;
+}
+body .div2 div .back,
+body .div2 div .front{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    background-color: rgb(77, 77, 77);
+    color:white;
+    border:3px solid rgb(0, 157, 255);
+    transition: .3s;
+    /* opacity: .5; */
+}
+body .div2 div[data-name = 'a'] .back{
+    background-color: rgb(0, 0, 0);
+}
+body .div2 div[data-name = 'b'] .back{
+    background-color: rgb(0, 0, 0);
+}
+body .div2 div[data-name = 'c'] .back{
+    background-color: rgb(212, 0, 255);
+}
+body .div2 div[data-name = 'h'] .back{
+    background-color: rgb(213, 0, 0);
+}
+body .div2 div[data-name = 'e'] .back{
+    background-color: rgb(0, 123, 255);
+}
+body .div2 div[data-name = 'f'] .back{
+    background-color: rgb(0, 140, 255);
+}
+body .div2 div[data-name = 'g'] .back{
+    background-color: rgb(55, 255, 0);
+}
+body .div2 div[data-name = 'i'] .back{
+    background-color: rgb(102, 104, 102);
+}
+body .div2 div[data-name = 'j'] .back{
+    background-color: rgb(86, 91, 66);
+}
+body .div2 div .front{
+    opacity: 1;
+    /* opacity: .5; */
+}
+body .div2 .flipped .front{
+/* .class_front{ */
+    transform: rotateY(180deg);
+    z-index: 2;
+}
+body .div2 .flipped .back{
+/* .class_back{ */
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+.won{
+    display: flex;
+    justify-content: space-between;
+    align-items: enter;
+    border:2px solid rgb(0, 157, 255);
+    padding: 5px 10px;
+}
+.won h2:nth-child(1){
+    color: rgb(17, 255, 0);
+}
+.won h2:nth-child(2){
+    color: rgb(255, 0, 0);
+}
+@media (max-width: 768px) {
+    body {
+    width: 360px;
+    }
+    body .div2 div{
+        height: 50px;
+        width: 50px;
+    }
+}
