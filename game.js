@@ -12,24 +12,25 @@ button.addEventListener("click", function() {
         name = "Unknow"
     }
     p.textContent = `name: ${name}`;
+    new_game();
+})
+function new_game(){
     setTimeout(function(){
         divs.forEach(div => {
             div.classList.add("flipped");
         })
-    },0)
+    },500)
     setTimeout(function(){
         divs.forEach(div => {
             div.classList.remove("flipped");
         })
-    },1000)
-})
-
+    },2000)
+}
 let won = 0;
 let lost = 0;
 let line = 100;
 function startgame(){
-    
-    line = 100;
+    line = 100
     let level =Array.from(document.querySelectorAll(".won  h2"));
     level[0].textContent=`Won Games: ${won}`;
     level[1].textContent=`Lost Games: ${lost}`
@@ -50,22 +51,21 @@ function startgame(){
         [divs[g] , divs[j]] = [divs[j] , divs[g]];
         g++
     }
-    divs.forEach( div=> div2.appendChild(div))
     
-    divs.forEach(div => {
-        div.classList.remove("flipped", "matched");
-    });
-
     let i = [];
     let w = document.querySelector(".div1 .wrong");
     k = 0;
     
     w.textContent =`Wrong Tries : 0`;
     divs.forEach(div => {
+        divs.forEach( div=> div2.appendChild(div))
+        divs.forEach(div => {
+            div.classList.remove("flipped", "matched");
+        });
         div.addEventListener("click", function(event){
             // event.stopPropagation(); 
             
-            if (i.length < 2 && !this.classList.contains("flipped")) {
+            if (i.length < 2 && !this.classList.contains("flipped") && !this.classList.contains("matched")) {
                 this.classList.add("flipped");
                 i.push(this);
             }
@@ -75,10 +75,10 @@ function startgame(){
                     i[0].classList.add("matched");
                     i[1].classList.add("matched");
                     i = [];
-                    line -=10;
                     setTimeout(() => div3.style.setProperty("--line-left", `-${line}%`),300)
                     
                 }else{
+                    line -=10;
                     div3.style.setProperty("--line-left", `-${line}%`);
                     console.log("false")
                     k++;
@@ -92,6 +92,7 @@ function startgame(){
                             lost++
                             if (play){
                                 setTimeout(function() {
+                                    new_game();
                                     startgame();
                                 },300)
                             }else{
@@ -102,11 +103,15 @@ function startgame(){
                 }
             }
             let result =divs.every(div => div.classList.contains("matched"));
-            if (result){
+            if (result === true){
+                divs.forEach(div => {
+                    div.classList.remove("matched");
+                });
                 won++
                 let play = confirm("You Won!-do you play agien? ")
                 if (play){
                     setTimeout(function() {
+                        new_game();
                         startgame();
                     },300)
                 }else{

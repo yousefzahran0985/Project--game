@@ -1,12 +1,19 @@
-body{
+body .container{
     font-family: 'Cairo', sans-serif;
     font-family: "Inter", sans-serif;
     width: 500px;
-    margin: auto;
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    padding: 10px;
+    gap: 60px;
+}
+body{
+    background: linear-gradient( to top left, rgb(118, 52, 175) , rgb(173, 158, 249));
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    box-sizing: border-box;
 }
 .control-button {
     position: fixed;
@@ -40,7 +47,7 @@ body .div1 p{
     margin: 0;
 }
 body .div3{
-    background-color: rgb(169, 169, 169);
+    background: linear-gradient(to left , rgb(255, 49, 49), yellow ,rgb(82, 219, 82));
     height: 7px;
     border-radius: 4px;
     width: 100%;
@@ -48,15 +55,15 @@ body .div3{
     overflow: hidden;
 }
 body .div3::after{
+    background-color: rgb(169, 169, 169);
     transition: left .3s ;
     content: '';
-    border-radius: 4px;
+    border-radius: 1px;
     position: absolute;
     width: 100%;
     height: 100%;
     left: var(--line-left , -100%);
     top: 0;
-    background-color: rgb(0, 89, 255);
 }
 
 body .div2 {
@@ -92,28 +99,35 @@ body .div2 div[data-name = 'a'] .back{
     background-color: rgb(0, 0, 0);
 }
 body .div2 div[data-name = 'b'] .back{
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(190, 190, 190);
+    color: black;
 }
 body .div2 div[data-name = 'c'] .back{
-    background-color: rgb(212, 0, 255);
+    background-color: rgb(136, 8, 161);
 }
 body .div2 div[data-name = 'h'] .back{
     background-color: rgb(213, 0, 0);
 }
 body .div2 div[data-name = 'e'] .back{
-    background-color: rgb(0, 123, 255);
+    background-color: rgb(253, 253, 253);
+    color: blue;
 }
 body .div2 div[data-name = 'f'] .back{
-    background-color: rgb(0, 140, 255);
+    background-color: rgb(48, 142, 220);
 }
 body .div2 div[data-name = 'g'] .back{
     background-color: rgb(55, 255, 0);
 }
+body .div2 div[data-name = 'd'] .back{
+    background-color: rgb(255, 208, 0);
+}
 body .div2 div[data-name = 'i'] .back{
-    background-color: rgb(102, 104, 102);
+    background-color: rgb(255, 255, 255);
+    color: black;
 }
 body .div2 div[data-name = 'j'] .back{
-    background-color: rgb(86, 91, 66);
+    background-color: rgb(120, 120, 120);
+    color: rgb(255, 140, 0);
 }
 body .div2 div .front{
     opacity: 1;
