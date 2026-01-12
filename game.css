@@ -1,29 +1,38 @@
 body .container{
-    font-family: 'Cairo', sans-serif;
-    font-family: "Inter", sans-serif;
-    width: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    max-width: 600px;
+    height: 600px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    justify-content: space-between;
 }
 body{
-    background: linear-gradient( to top left, rgb(118, 52, 175) , rgb(173, 158, 249));
+    font-family: 'Cairo', 'Inter', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
-    box-sizing: border-box;
 }
 .control-button {
     position: fixed;
     top: 0;
     left: 0;
-    height: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: rgba(0, 140, 255, 0.856);
     z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
 }
 .control-button span{
     position: absolute;
@@ -34,14 +43,49 @@ body{
     color: rgb(62, 62, 62);
     padding: 10px 20px;
     border-radius: 5px;
+    z-index: 1;
     cursor: pointer;
+    display: none;
+}
+.control-button .easy,
+.control-button .hard{
+    padding: 10px 30px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: #66eaa1;
+    border: 2px #66eaa1 solid;
+    transition: .3s;
+    cursor: pointer;
+    z-index: 2;
+    /* position: absolute; */
+}
+.control-button .hard{
+    border: 2px #ff7b7b solid;
+    background-color: #ff7b7b;
+
+}
+.control-button .hard:hover{
+    /* color: rgb(247, 255, 5); */
+    background-color: #ff3a3a;
+    border: 2px white solid;
+    scale: .92;
+}
+.control-button .easy:hover{
+    scale: .92;
+    background-color: #26b566;
+    /* color: rgb(247, 255, 5); */
+    border: 2px white solid;
+
 }
 body .div1{
     display: flex;
     justify-content: space-between;
     align-items: enter;
-    border:2px solid rgb(0, 157, 255);
+    border:2px solid rgb(255, 255, 255);
     padding: 10px;
+    border-radius: 4px;
 }
 body .div1 p{
     margin: 0;
@@ -69,7 +113,10 @@ body .div3::after{
 body .div2 {
     display: grid;
     grid-template-columns: repeat(5 , auto);
+    justify-content: space-between;
+    align-items: center;
     gap: 20px;
+    /* padding: 2px; */
 }
 body .div2 div .front{
     z-index: 2;
@@ -79,8 +126,8 @@ body .div2 div .back{
     z-index: 1;
 }
 body .div2 div{
-    height: 80px;
-    width: 80px;
+    height: 90px;
+    width: 90px;
 }
 body .div2 div .back,
 body .div2 div .front{
@@ -91,7 +138,7 @@ body .div2 div .front{
     font-size: 30px;
     background-color: rgb(77, 77, 77);
     color:white;
-    border:3px solid rgb(0, 157, 255);
+    border:3px solid rgb(255, 255, 255);
     transition: .3s;
     /* opacity: .5; */
 }
@@ -146,22 +193,43 @@ body .div2 .flipped .back{
 .won{
     display: flex;
     justify-content: space-between;
-    align-items: enter;
-    border:2px solid rgb(0, 157, 255);
-    padding: 5px 10px;
+    align-items: center;
+    border:2px solid rgb(255, 255, 255);
+    padding: 0px 10px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+.won h2{
+    line-height: 1;
+    margin: 10px 0;
 }
 .won h2:nth-child(1){
     color: rgb(17, 255, 0);
 }
 .won h2:nth-child(2){
-    color: rgb(255, 0, 0);
+    color: #ff7b7b;
 }
 @media (max-width: 768px) {
-    body {
-    width: 360px;
+    body .container{
+        gap: 20px;
+        height: 400px;
+    }
+    body .div2{
+        gap: 15px;
     }
     body .div2 div{
-        height: 50px;
-        width: 50px;
+        height: 45px;
+        width: 45px;
+    }
+    body .div2 div .back,
+    body .div2 div .front{
+        font-size: 20px;
+        border: 1px solid rgb(255, 255, 255);
+    }
+    h2{
+        font-size: 14px;
+    }
+    p{
+        font-size: 14px;
     }
 }
